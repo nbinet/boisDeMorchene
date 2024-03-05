@@ -1,13 +1,11 @@
 import express, { json } from 'express';
 import contactController from './controllers/contact.js';
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors())
 app.use(json());
 app.use('/contact', contactController);
 
-app.get("/", (req, res) => {
-    res.send("hello");
-});
-
-app.listen(80);
+app.listen(8000);
