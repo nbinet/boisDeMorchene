@@ -1,10 +1,45 @@
+@font-face {
+    font-family: 'Kanit';
+    src: url('../../public/assets/fonts/Kanit-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kanit-Bold';
+    src: url('../../public/assets/fonts/Kanit-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #282828;
+    --secondary-color: #b49f87;
+    --text-secondary: #353535;
+}
+
 html, body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
+    background-color: var(--primary-color);
+    font-family: 'Kanit';
 }
 
 .container {
     padding: 3rem 15%;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-secondary);
+}
+
+.text-light {
+    color: var(--secondary-color) !important;
+}
+
+.text-vertical {
+    writing-mode: sideways-lr;
 }

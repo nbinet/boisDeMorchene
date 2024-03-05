@@ -10,27 +10,46 @@ const Contact = () => {
     return (
         <>
             <Header />
-                <div className='container flex-grow-1'>
-                    <div className='w-full h-full flex flex-column justify-content-center align-items-center'>
-                        <div className='w-full shadow-4 p-5 border-round-xl flex flex-row'>
-                            <div className='w-5'>
-                                <h2 className='mt-0'>Nous contacter</h2>
-                                <div className='flex flex-column gap-3 pt-3'>
-                                    { infos?.email ? <span>{infos.email}</span> : null }
-                                    { infos?.phone ? <span>{infos.phone}</span> : null }
-                                    { infos?.address ? <span>{infos.address}</span> : null }
-                                    { infos?.timetable ? <span>{infos.timetable}</span> : null }
+                <div className='flex-grow-1 contact'>
+                    <div className='w-full h-full flex flex-row'>
+                        <div className='w-7'>
+                            { infos?.latitude && infos?.longitude ? <Map latitude={infos.latitude} longitude={infos.longitude}/> : null }
+                        </div>
+                        <div className='w-5 bg-secondary p-5 flex flex-row justify-content-between'>
+                            <div className='flex flex-column justify-content-around'>
+                                <h2 className='m-0 uppercase text-4xl'>Nous contacter</h2>
+                                <div className='flex flex-column gap-5'>
+                                    { infos?.email ?
+                                        <div className='flex flex-row gap-3 align-items-center'>
+                                            <i className='pi pi-at bg-primary border-circle p-2 text-xl text-light'></i>
+                                            <span className='font-bold'>{infos.email}</span>
+                                        </div>
+                                    : null }
+                                    { infos?.phone ?
+                                        <div className='flex flex-row gap-3 align-items-center'>
+                                            <i className='pi pi-phone bg-primary border-circle p-2 text-xl text-light'></i>
+                                            <span className='font-bold'>{infos.phone}</span>
+                                        </div>
+                                    : null }
+                                    { infos?.address ?
+                                        <div className='flex flex-row gap-3 align-items-center'>
+                                            <i className='pi pi-map-marker bg-primary border-circle p-2 text-xl text-light'></i>
+                                            <span className='font-bold'>{infos.address}</span>
+                                        </div>
+                                    : null }
+                                    { infos?.timetable ?
+                                        <div className='flex flex-row gap-3 align-items-center'>
+                                            <i className='pi pi-calendar bg-primary border-circle p-2 text-xl text-light'></i>
+                                            <span className='font-bold'>{infos.timetable}</span>
+                                        </div>
+                                    : null }
+                                </div>
+                                <div className='flex flex-row gap-3'>
+                                    <i className='pi pi-instagram bg-primary border-circle p-3 text-3xl'></i>
+                                    <i className='pi pi-facebook bg-primary border-circle p-3 text-3xl'></i>
                                 </div>
                             </div>
-                            <div className='flex justify-content-center px-2'>
-                                <div className='border-2 border-gray-200 w-min h-full'></div>
-
-                            </div>
-                            <div className='flex-grow-1'>
-                                <div className='w-full h-20rem'>
-                                    { infos?.latitude && infos?.longitude ? <Map latitude={infos.latitude} longitude={infos.longitude}/> : null }
-                                </div>
-                            </div>
+                            <span className='uppercase align-self-center text-vertical big-text'>Contact</span>
                         </div>
                     </div>
                 </div>
