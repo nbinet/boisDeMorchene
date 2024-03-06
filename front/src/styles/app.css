@@ -35,11 +35,3 @@ html, body {
     background-color: var(--secondary-color);
     color: var(--text-secondary);
 }
-
-.text-light {
-    color: var(--secondary-color) !important;
-}
-
-.text-vertical {
-    writing-mode: sideways-lr;
-}
