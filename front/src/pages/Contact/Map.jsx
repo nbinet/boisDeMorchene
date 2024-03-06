@@ -6,7 +6,7 @@ import { mapMarker } from '../../consts/map.js';
 const Map = ({ latitude, longitude }) => {
     const center = [Number(latitude), Number(longitude)];
     return (
-        <MapContainer center={center} zoom={12} scrollWheelZoom className='w-full h-full'>
+        <MapContainer center={center} zoom={13} scrollWheelZoom className='w-full h-full'>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
