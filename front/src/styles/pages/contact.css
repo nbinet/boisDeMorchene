@@ -1,0 +1,8 @@
+.contact {
+    .big-text {
+        font-size: 6rem;
+        color: transparent;
+        -webkit-text-stroke-width: .5px;
+        -webkit-text-stroke-color: #685744;
+    }
+}

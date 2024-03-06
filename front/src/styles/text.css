@@ -1,0 +1,11 @@
+.text-light {
+    color: var(--secondary-color) !important;
+}
+
+.text-vertical {
+    writing-mode: sideways-lr;
+}
+
+.word-break-all {
+    word-break: break-all;
+}
