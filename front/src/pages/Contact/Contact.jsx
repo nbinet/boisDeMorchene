@@ -3,9 +3,12 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import useInfos from '../../hooks/contact/UseInfos';
 import Map from './Map';
+import useSocialNetworks from '../../hooks/contact/UseSocialNetworks';
 
 const Contact = () => {
     const { infos } = useInfos();
+    const { socialNetworks } = useSocialNetworks();
+    console.log(socialNetworks);
 
     return (
         <>
@@ -45,8 +48,12 @@ const Contact = () => {
                                     : null }
                                 </div>
                                 <div className='flex flex-row gap-3'>
-                                    <i className='pi pi-instagram bg-primary border-circle p-3 text-3xl'></i>
-                                    <i className='pi pi-facebook bg-primary border-circle p-3 text-3xl'></i>
+                                    { socialNetworks?.map((sn, i) => (
+                                        <a href={sn.url} target='_blank' rel='noreferrer'>
+                                            <i key={i} className={`pi pi-${sn.label} bg-primary border-circle p-3 text-3xl`}></i>
+                                        </a>
+
+                                    ))}
                                 </div>
                             </div>
                             <span className='uppercase align-self-center text-vertical big-text'>Contact</span>

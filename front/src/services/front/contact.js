@@ -5,3 +5,9 @@ export const getContactInfos = async () => {
         route: '/contact/infos',
     });
 }
+
+export const getSocialNetworks = async () => {
+    return await request({
+        route: '/contact/social-networks',
+    });
+}
