@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+        "preserveSymlinks": true
+    },
+    "include": [
+        "api/src/**/*",
+        "front/src/**/*"
+    ],
+}
