@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { mapMarker } from '../../consts/map.js';
+import { mapMarker } from '../../../consts/map.js';
 
 const Map = ({ latitude, longitude }) => {
     const center = [Number(latitude), Number(longitude)];

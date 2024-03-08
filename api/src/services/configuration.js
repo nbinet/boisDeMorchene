@@ -14,3 +14,8 @@ export const getConfigurationValues = db
     .from(configuration)
     .where(sql`${configuration.key} LIKE ${sql.placeholder('categoryLike')}`)
     .prepare();
+
+export const setConfigurationValue = db
+    .insert(configuration)
+    .values({ key: sql.placeholder('key'), value: sql.placeholder('value') })
+    .onDuplicateKeyUpdate({ set: { value: sql.placeholder('value') } });
