@@ -7,6 +7,8 @@ import 'primeflex/primeflex.min.css'
 import 'primeicons/primeicons.css';
 import './styles/app.css';
 import './styles/text.css';
+import './styles/border.css';
+import './styles/burgerMenu.css';
 import './styles/pages/contact.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

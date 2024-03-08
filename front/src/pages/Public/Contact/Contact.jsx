@@ -6,7 +6,6 @@ import useSocialNetworks from '../../../hooks/contact/UseSocialNetworks';
 const Contact = () => {
     const { infos } = useInfos();
     const { socialNetworks } = useSocialNetworks();
-    console.log(socialNetworks);
 
     return (
         <>
