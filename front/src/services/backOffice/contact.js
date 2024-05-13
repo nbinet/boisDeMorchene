@@ -7,3 +7,17 @@ export const setContactInfos = async (body) => {
         body
     });
 }
+
+export const getAllSocialNetworks = async () => {
+    return await request({
+        route: '/admin/contact/reseaux-sociaux/tout',
+    });
+}
+
+export const deleteSocialNetwork = async label => {
+    return await request({
+        route: '/admin/contact/reseaux-sociaux',
+        method: 'delete',
+        body: { label }
+    });
+}

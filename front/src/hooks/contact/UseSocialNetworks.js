@@ -23,6 +23,7 @@ const useSocialNetworks = () => {
 
     return {
         socialNetworks,
+        setSocialNetworks,
         loading
     }
 }

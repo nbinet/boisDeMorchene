@@ -11,7 +11,7 @@ contactController.get("/infos", async (req, res) => {
     });
 });
 
-contactController.get("/social-networks", async (req, res) => {
+contactController.get("/reseaux-sociaux", async (req, res) => {
     const socialNetworks = await findAllSocialNetwork.execute();
     res.send({
         socialNetworks

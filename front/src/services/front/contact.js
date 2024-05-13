@@ -8,6 +8,6 @@ export const getContactInfos = async () => {
 
 export const getSocialNetworks = async () => {
     return await request({
-        route: '/contact/social-networks',
+        route: '/contact/reseaux-sociaux',
     });
 }

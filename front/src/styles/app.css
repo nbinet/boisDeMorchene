@@ -15,6 +15,7 @@
 :root {
     --primary-color: #282828;
     --secondary-color: #b49f87;
+    --secondary-color-darker: #937e66;
     --text-secondary: #353535;
 }
 
@@ -34,4 +35,8 @@ html, body {
 .bg-secondary {
     background-color: var(--secondary-color);
     color: var(--text-secondary);
+}
+
+.hover-secondary:hover {
+    background-color: var(--secondary-color-darker);
 }

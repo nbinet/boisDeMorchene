@@ -6,6 +6,7 @@ import Contact from './pages/Public/Contact/Contact';
 import ContactAdmin from './pages/BackOffice/Contact/Contact';
 import Layout from './pages/Public/Layout';
 import LayoutAdmin from './pages/BackOffice/Layout';
+import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
 
 const Router = () => {
     return (
@@ -19,6 +20,7 @@ const Router = () => {
                 <Route path='/admin' element={<LayoutAdmin />}>
                     <Route index element={<HomeAdmin />} />
                     <Route path='contact' element={<ContactAdmin />} />
+                    <Route path='reseaux-sociaux' element={<SocialNetworks />} />
                     <Route path='*' element={<HomeAdmin />} />
                 </Route>
             </Routes>
