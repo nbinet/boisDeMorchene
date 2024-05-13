@@ -1,7 +1,7 @@
 import express from 'express';
 import { setConfigurationValue } from '../../services/configuration.js';
 import { socialNetworksAvailable } from '../../consts/socialNetworks.js';
-import { deleteSocialNetwork, findAllSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
+import { deleteSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
 
 const contactController = express();
 

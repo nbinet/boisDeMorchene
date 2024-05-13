@@ -12,3 +12,12 @@ export const socialNetwork = mysqlTable('social_network', {
     label: varchar('label', { length: 255, enum: socialNetworksAvailable }).notNull().unique(),
     url: varchar('url', { length: 255 })
 });
+
+export const race = mysqlTable('race', {
+    id: int('id').primaryKey().autoincrement(),
+    label: varchar('label', { length: 255}).notNull().unique(),
+    slug: varchar('slug', { length: 255}).notNull().unique(),
+    description: text('description'),
+    order: int('order'),
+    //todo chiens
+});
