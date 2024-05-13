@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
-import { racesAtom } from '../../atoms/racesAtom';
+import { racesAtom } from '../../atoms/races';
 import { getAllRaces } from '../../services/backOffice/races';
 
 const useRaces = () => {

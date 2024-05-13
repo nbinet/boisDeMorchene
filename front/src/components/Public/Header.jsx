@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import useSocialNetworks from '../../hooks/contact/UseSocialNetworks';
+import useSocialNetworks from '../../hooks/contact/useSocialNetworks';
 
 const Header = () => {
     const checkboxMenu = useRef(null);

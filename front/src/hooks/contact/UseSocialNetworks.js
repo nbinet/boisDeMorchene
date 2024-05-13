@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getSocialNetworks } from '../../services/front/contact';
 import { useAtom } from 'jotai';
-import { socialNetworksAtom } from '../../atoms/contactAtoms';
+import { socialNetworksAtom } from '../../atoms/contact';
 
 const useSocialNetworks = () => {
     const [socialNetworks, setSocialNetworks] = useAtom(socialNetworksAtom);

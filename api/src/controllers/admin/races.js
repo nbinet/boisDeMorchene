@@ -1,18 +1,28 @@
 import express from 'express';
 import { deleteRace, findAllRaces, setRace } from '../../services/races.js';
+import { slugify } from '../../utils/text.js';
+import multer from 'multer';
+
+const upload = multer({ dest: 'uploads/races/' });
 
 const raceController = express();
 
 raceController.get("/", async (req, res) => {
-    res.send({ races: findAllRaces });
+    const races = await findAllRaces.execute();
+    res.send({ races });
 });
 
-raceController.post("/", async (req, res) => {
+raceController.post("/", upload.single('image'), async (req, res) => {
     const { label, description } = req.body;
-    const slug = label.toLowerCase().replace(/\d/, '-');
+    console.log(req.file);
+    res.send({ error: true });
+    return;
+    const slug = slugify(label);
 
-    if (!label || !description)
-        return { error: true };
+    if (!label || !description) {
+        res.send({ error: true });
+        return;
+    }
 
     await setRace.execute({ label, slug, description });
 
