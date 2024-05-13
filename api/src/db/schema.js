@@ -21,3 +21,10 @@ export const race = mysqlTable('race', {
     order: int('order'),
     //todo chiens
 });
+
+export const dog = mysqlTable('dog', {
+    id: int('id').primaryKey().autoincrement(),
+    name: varchar('name', { length: 255 }).notNull(),
+    age: int('age').notNull(),
+    raceId: int("race_id").references(() => race.id)
+});
