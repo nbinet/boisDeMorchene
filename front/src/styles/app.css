@@ -22,7 +22,9 @@
 html, body {
     padding: 0;
     margin: 0;
-    width: 100%;
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100vw;
     height: 100%;
     background-color: var(--primary-color);
     font-family: 'Kanit';
@@ -35,6 +37,24 @@ html, body {
 .bg-secondary {
     background-color: var(--secondary-color);
     color: var(--text-secondary);
+}
+
+.separator {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    display: flex;
+    align-items: center;
+
+    &::before, &::after {
+        height: 1px;
+        content: " ";
+        display: block;
+        background-color: var(--primary-color);
+        flex-grow: 1;
+    }
 }
 
 .hover-secondary:hover {
