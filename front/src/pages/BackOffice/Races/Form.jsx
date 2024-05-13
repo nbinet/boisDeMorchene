@@ -10,6 +10,8 @@ import { useAtom } from 'jotai';
 import { selectedRaceAtom } from '../../../atoms/races';
 import { FileUpload } from 'primereact/fileupload';
 import { InputTextarea } from 'primereact/inputtextarea';
+import useRaces from '../../../hooks/races/useRaces';
+import { API_URL } from '../../../consts/api';
 
 const Form = () => {
     const [image, setImage] = useState(undefined);
@@ -17,12 +19,14 @@ const Form = () => {
     const toast = useRef(null);
     const fileUploadRef = useRef(null);
 
+    const { fetchRaces } = useRaces();
+
     const [selectedRace, setSelectedRace] = useAtom(selectedRaceAtom);
 
     const initialValues = { ...selectedRace };
 
     useEffect(() => {
-        setImage(undefined);
+        setImage(selectedRace?.image ?? undefined);
     }, [selectedRace]);
 
     const validate = values => {
@@ -62,13 +66,15 @@ const Form = () => {
             return;
         }
 
-        toast.current.show({ severity: 'success', summary: 'Succès', detail: "Les informations ont été modifiées", life: 6000 });
+        toast.current.show({ severity: 'success', summary: 'Succès', detail: selectedRace.id ? "Les informations ont été modifiées" : "La race a été créée", life: 6000 });
+        setSelectedRace(undefined);
+        fetchRaces();
     }
 
     return (
         <>
             <Toast ref={toast} />
-            <Dialog visible={!!selectedRace} onHide={() => setSelectedRace(undefined)} header={selectedRace.id ? 'Modification de la race' : 'Nouvelle race'} draggable={false} blockScroll resizable={false} className='w-12 lg:w-9'>
+            <Dialog visible={!!selectedRace} onHide={() => setSelectedRace(undefined)} header={selectedRace?.id ? 'Modification de la race' : 'Nouvelle race'} draggable={false} blockScroll resizable={false} className='w-12 lg:w-9'>
                 <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit} validateOnBlur={false} validateOnChange={false}>
                     { ({ isSubmitting }) => (
                         <FormikForm className='grid row-gap-5 py-4'>
@@ -127,7 +133,7 @@ const Form = () => {
                                         </div>
                                         { image ?
                                             <div className='flex flex-grow-1 flex-row align-items-center gap-2'>
-                                                <img src={typeof image == 'string' ? image : image.objectURL} alt='race' className='max-h-10rem w-auto' />
+                                                <img src={typeof image == 'string' ? `${API_URL}/${image}` : image.objectURL} alt='race' className='max-h-10rem w-auto' />
                                                 <Button icon="pi pi-times" text rounded onClick={() => { setImage(undefined) }} className='text-red-500' />
                                             </div>
                                         : null }

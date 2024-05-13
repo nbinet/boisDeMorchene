@@ -17,8 +17,7 @@ export const setRace = async body => {
 
 export const deleteRace = async id => {
     return await request({
-        route: '/admin/races',
+        route: `/admin/races/${id}`,
         method: 'delete',
-        body: { id }
     });
 }
