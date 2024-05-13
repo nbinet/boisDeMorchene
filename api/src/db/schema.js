@@ -1,4 +1,5 @@
 import { int, mysqlTable, text, varchar } from "drizzle-orm/mysql-core";
+import { socialNetworksAvailable } from "../consts/socialNetworks.js";
 
 export const configuration = mysqlTable('configuration', {
     id: int('id').primaryKey().autoincrement(),
@@ -8,6 +9,6 @@ export const configuration = mysqlTable('configuration', {
 
 export const socialNetwork = mysqlTable('social_network', {
     id: int('id').primaryKey().autoincrement(),
-    label: varchar('label', { length: 255, enum: ['facebook', 'instagram', 'linkedin', 'youtube', 'vimeo', 'twitter'] }).notNull().unique(),
+    label: varchar('label', { length: 255, enum: socialNetworksAvailable }).notNull().unique(),
     url: varchar('url', { length: 255 })
 });

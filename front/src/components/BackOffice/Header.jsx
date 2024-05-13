@@ -4,9 +4,14 @@ import { Menubar } from 'primereact/menubar';
 const Header = () => {
     const menu = [
         {
-            label: 'contact',
+            label: 'Contact',
             icon: 'pi pi-envelope',
             url: '/admin/contact',
+        },
+        {
+            label: 'Réseaux sociaux',
+            icon: 'pi pi-megaphone',
+            url: '/admin/reseaux-sociaux',
         }
     ]
     return (
