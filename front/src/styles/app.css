@@ -30,6 +30,10 @@ html, body {
     font-family: 'Kanit';
 }
 
+a {
+    transition: all 450ms ease;
+}
+
 .container {
     padding: 1rem 10%;
 }
@@ -37,6 +41,11 @@ html, body {
 .bg-secondary {
     background-color: var(--secondary-color);
     color: var(--text-secondary);
+}
+
+.bg-footer {
+    background-color: #27211e;
+    color: #fff;
 }
 
 .separator {
@@ -52,11 +61,60 @@ html, body {
         height: 1px;
         content: " ";
         display: block;
-        background-color: var(--primary-color);
+        background-color: #fff;
         flex-grow: 1;
     }
 }
 
 .hover-secondary:hover {
     background-color: var(--secondary-color-darker);
+}
+
+.relative-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 145px);
+}
+
+.video-height {
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 1;
+
+    @media screen and (max-width: 767px) {
+        top: 30%;
+        left: 0;
+        transform: initial;
+    }
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+
+    @media screen and (max-width: 767px) {
+        font-size: 1.5rem;
+    }
+}
+
+.overlay .contact-link {
+    background: #27211e;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+
+    @media screen and (max-width: 991px) {
+        font-size: 1rem;
+    }
+}
+
+.overlay .contact-link:hover {
+    background: #443934;
 }

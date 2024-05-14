@@ -11,10 +11,10 @@ export const findRaceById = db
     .limit(1)
     .prepare();
 
-export const findRaceByLabel = db
+export const findRaceBySlug = db
     .select({ id: race.id })
     .from(race)
-    .where(eq(race.label, sql.placeholder('label')))
+    .where(eq(race.slug, sql.placeholder('slug')))
     .limit(1)
     .prepare();
 

@@ -102,6 +102,11 @@ const Races = () => {
                             header='Races'
                             listTemplate={listTemplate}
                             layout='grid'
+                            paginator
+                            rows={20}
+                            paginatorTemplate="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+                            currentPageReportTemplate="{first} - {last} sur {totalRecords}"
+                            paginatorPosition='both'
                         />
                     ) }
                 </div>

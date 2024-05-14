@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteRace, findAllRaces, findRaceById, findRaceByLabel, setRace } from '../../services/races.js';
+import { deleteRace, findAllRaces, findRaceById, setRace } from '../../services/races.js';
 import { slugify } from '../../utils/text.js';
 import multer from 'multer';
 import path from 'path';
@@ -25,10 +25,10 @@ raceController.get("/", async (req, res) => {
 
 raceController.post("/", upload.single('image'), async (req, res) => {
     const { id = undefined, label, description, image } = req.body;
+    const slug = slugify(label);
+    const existing = await findRaceBySlug.execute({ slug });
 
-    const existing = await findRaceByLabel.execute({ label });
-
-    if (!id && existing) {
+    if (!id && existing?.length) {
         if (req.file?.path)
             unlink(req.file.path);
         res.send({ error: "Ce nom est déjà utilisé" });
@@ -39,8 +39,6 @@ raceController.post("/", upload.single('image'), async (req, res) => {
         unlink(existing.image);
 
     const imagePath = req.file?.path ?? undefined;
-
-    const slug = slugify(label);
 
     if (!label) {
         res.send({ error: true });
