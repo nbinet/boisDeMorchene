@@ -1,5 +1,5 @@
 import express from 'express';
-import { findAllDogs, setDog } from '../../services/dogs.js';
+import { findAllDogs, setDog, findDogById, deleteDog } from '../../services/dogs.js';
 import { findRaceById, findRaceByLabel } from '../../services/races.js';
 import { race } from '../../db/schema.js';
 
@@ -31,6 +31,20 @@ dogsController.post("/", async (req, res) => {
     await setDog.execute({ name, age, raceId });
     res.send({ updated: true });
     
+});
+
+dogsController.delete("/:id", async (req, res) => {
+    const { id } = req.params;
+    const dog = await findDogById.execute({ id }) ?? null;
+    
+    if (dog.length === 0 || !dog[0].id) {
+        res.send({ error: "Ce chien est introuvable" });
+        return;
+    }
+
+    await deleteDog.execute({ id });
+
+    res.send({ deleted: true });
 });
 
 

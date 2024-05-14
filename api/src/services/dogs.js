@@ -4,6 +4,13 @@ import { db } from "../db/setup.js";
 
 export const findAllDogs = db.select().from(dog).prepare();
 
+export const findDogById = db
+    .select({ id: dog.id })
+    .from(dog)
+    .where(eq(dog.id, sql.placeholder('id')))
+    .limit(1)
+    .prepare();
+
 export const setDog = db
     .insert(dog)
     .values({
@@ -11,4 +18,9 @@ export const setDog = db
         age: sql.placeholder('age'),
         raceId: sql.placeholder('raceId')
     })
+    .prepare();
+
+export const deleteDog = db
+    .delete(dog)
+    .where(eq(dog.id, sql.placeholder('id')))
     .prepare();
