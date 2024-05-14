@@ -8,7 +8,7 @@ import { Button } from 'primereact/button';
 import { useAtom } from 'jotai';
 import useSocialNetworks from '../../../hooks/contact/useSocialNetworks';
 import useAllSocialNetworks from '../../../hooks/contact/useAllSocialNetworks';
-import { selectedSocialNetworkAtom } from '../../../atoms/tmp/contactAtoms';
+import { selectedSocialNetworkAtom } from '../../../atoms/contactAtoms';
 import { Dropdown } from 'primereact/dropdown';
 import { setSocialNetwork } from '../../../services/backOffice/contact';
 
