@@ -1,7 +1,7 @@
 import React from 'react';
-import useInfos from '../../../hooks/contact/useInfos';
+import useInfos from '../../../hooks/tmp/contact/useInfos';
 import Map from './Map';
-import useSocialNetworks from '../../../hooks/contact/useSocialNetworks';
+import useSocialNetworks from '../../../hooks/tmp/contact/useSocialNetworks';
 
 const Contact = () => {
     const { infos } = useInfos();

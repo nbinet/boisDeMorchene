@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import useSocialNetworks from '../../../hooks/contact/useSocialNetworks';
+import useSocialNetworks from '../../../hooks/tmp/contact/useSocialNetworks';
 import { Button } from 'primereact/button';
 import { capitalize } from '../../../utils/formatter';
 import { deleteSocialNetwork } from '../../../services/backOffice/contact';
