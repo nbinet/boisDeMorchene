@@ -1,5 +1,5 @@
 import React from 'react';
-import useSocialNetworks from '../../hooks/contact/UseSocialNetworks';
+import useSocialNetworks from '../../hooks/contact/useSocialNetworks';
 
 const Footer = () => {
     const { socialNetworks } = useSocialNetworks();

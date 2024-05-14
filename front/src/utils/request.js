@@ -1,14 +1,13 @@
 import { API_URL } from "../consts/api";
 
-export const request = async ({ route, method, body, token }) => {
+export const request = async ({ route, method, body, headers, token, preventJson }) => {
     const options = {
         method,
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            ...headers,
             ...token && {'Authorization': `Bearer ${token}`}
         },
-        ...body && { body: JSON.stringify(body) }
+        ...body && { body: preventJson || (headers && headers['Content-Type']?.includes('multipart/form-data')) ? body : JSON.stringify(body) }
     };
     
     try {
