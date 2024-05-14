@@ -13,3 +13,7 @@
 a, a:visited, a:hover, a:active {
     color: inherit;
 }
+
+ul li a:hover {
+    color: var(--secondary-color);
+}
