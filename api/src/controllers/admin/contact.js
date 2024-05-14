@@ -1,7 +1,7 @@
 import express from 'express';
 import { setConfigurationValue } from '../../services/configuration.js';
 import { socialNetworksAvailable } from '../../consts/socialNetworks.js';
-import { deleteSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
+import { deleteSocialNetwork, findAllSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
 
 const contactController = express();
 
@@ -18,10 +18,15 @@ contactController.get("/reseaux-sociaux/tout", async (req, res) => {
     res.send({ socialNetworks: socialNetworksAvailable });
 });
 
+contactController.get("/reseaux-sociaux", async (req, res) => {
+    const socialNetworks = await findAllSocialNetwork.execute();
+    res.send({ socialNetworks });
+});
+
 contactController.post("/reseaux-sociaux", async (req, res) => {
     const { label, url } = req.body;
     if (!label || !url) {
-        res.send({ error: true });
+        res.send({ error: "Le réseau social et son URL sont requis" });
         return;
     }
 
@@ -30,14 +35,14 @@ contactController.post("/reseaux-sociaux", async (req, res) => {
     res.send({ updated: true });
 });
 
-contactController.delete("/reseaux-sociaux", async (req, res) => {
-    const { label } = req.body;
-    if (!label) {
-        res.send({ error: true });
+contactController.delete("/reseaux-sociaux/:id", async (req, res) => {
+    const { id } = req.params;
+    if (!id) {
+        res.send({ error: "Ce réseau social est introuvable" });
         return;
     }
 
-    await deleteSocialNetwork.execute({ label });
+    await deleteSocialNetwork.execute({ id });
 
     res.send({ deleted: true });
 });

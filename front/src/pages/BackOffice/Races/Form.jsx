@@ -7,7 +7,7 @@ import { classNames } from 'primereact/utils';
 import { Button } from 'primereact/button';
 import { setRace } from '../../../services/backOffice/races';
 import { useAtom } from 'jotai';
-import { selectedRaceAtom } from '../../../atoms/races';
+import { selectedRaceAtom } from '../../../atoms/racesAtoms';
 import { FileUpload } from 'primereact/fileupload';
 import { InputTextarea } from 'primereact/inputtextarea';
 import useRaces from '../../../hooks/races/useRaces';

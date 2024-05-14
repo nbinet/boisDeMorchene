@@ -4,6 +4,7 @@ export const request = async ({ route, method, body, headers, token, preventJson
     const options = {
         method,
         headers: {
+            'Content-Type': 'application/json',
             ...headers,
             ...token && {'Authorization': `Bearer ${token}`}
         },
@@ -15,7 +16,6 @@ export const request = async ({ route, method, body, headers, token, preventJson
         
         return await res.json();
     } catch (err) {
-        
         return { error: true }
     }
 }
