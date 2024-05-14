@@ -20,6 +20,16 @@ export const setDog = db
     })
     .prepare();
 
+export const updateDog = db
+    .update(dog)
+    .set({
+        name: sql.placeholder('name'),
+        age: sql.placeholder('age'),
+        raceId: sql.placeholder('raceId')
+    })
+    .where(eq(dog.id, sql.placeholder('id')))
+    .prepare();
+
 export const deleteDog = db
     .delete(dog)
     .where(eq(dog.id, sql.placeholder('id')))
