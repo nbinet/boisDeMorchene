@@ -18,6 +18,12 @@ export const findRaceBySlug = db
     .limit(1)
     .prepare();
 
+export const findDetailsBySlug = db
+    .query.race.findFirst({
+        where: (race, { eq }) => eq(race.slug, sql.placeholder('slug'))
+    })
+    .prepare();
+
 export const setRace = db
     .insert(race)
     .values({

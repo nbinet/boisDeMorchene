@@ -8,6 +8,8 @@ import Layout from './pages/Public/Layout';
 import LayoutAdmin from './pages/BackOffice/Layout';
 import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
 import Races from './pages/BackOffice/Races/Races';
+import Race from './pages/Public/Races/Race';
+import Error404 from './pages/Public/Errors/Error404';
 
 const Router = () => {
     return (
@@ -16,7 +18,8 @@ const Router = () => {
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />
-                    <Route path='*' element={<Home />} />
+                    <Route path='races/:slug' element={<Race />} />
+                    <Route path='*' element={<Error404 />} />
                 </Route>
                 <Route path='/admin' element={<LayoutAdmin />}>
                     <Route index element={<HomeAdmin />} />

@@ -3,9 +3,9 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 
 const Loading = ({ text }) => {
     return (
-        <div className='flex flex-column gap-3'>
+        <div className='flex flex-column justify-content-center align-items-center gap-3 h-full'>
             <ProgressSpinner />
-            <span>{text ?? 'Chargement'}</span>
+            <span className='text-xl text-white'>{text ?? 'Chargement'}</span>
         </div>
     )
 }

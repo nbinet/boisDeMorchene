@@ -1,0 +1,11 @@
+.aspect-1 {
+    aspect-ratio: 1;
+}
+
+.white-space-prewrap {
+    white-space: pre-wrap;
+}
+
+.fit-cover {
+    object-fit: cover;
+}
