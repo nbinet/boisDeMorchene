@@ -1,6 +1,6 @@
 import express from 'express';
 import { findAllDogs, setDog, findDogById, deleteDog, updateDog } from '../../services/dogs.js';
-import { findRaceById, findRaceByLabel } from '../../services/races.js';
+import { findRaceById, findRaceBySlug } from '../../services/races.js';
 import { race } from '../../db/schema.js';
 
 const dogsController = express();
