@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
 import useSocialNetworks from '../../hooks/contact/useSocialNetworks';
+import useRaces from '../../hooks/races/useRaces';
 
 const Header = () => {
     const checkboxMenu = useRef(null);
 
     const { socialNetworks } = useSocialNetworks();
+
+    const { races } = useRaces();
 
     return (
         <div className='w-full p-3 bg-white grid justify-content-between align-items-center gap-3 m-0'>
@@ -18,11 +21,7 @@ const Header = () => {
                         <span className="burger"></span>
                     </span>
                     <ul className='flex flex-column lg:flex-row gap-5'>
-                        <li><a href="/" className='text-2xl no-underline'>Caniche</a></li>
-                        <li><a href="/" className='text-2xl no-underline'>Cocker</a></li>
-                        <li><a href="/" className='text-2xl no-underline'>Jack Russel</a></li>
-                        <li><a href="/" className='text-2xl no-underline'>Shetland</a></li>
-                        <li><a href="/" className='text-2xl no-underline'>Teckel</a></li>
+                        { races?.map(r => <li key={r.id}><a href={`/race/${r.slug}`} className='text-2xl no-underline'>{r.label}</a></li>)}
                         <li><a href="/contact" className='text-2xl no-underline'>Contact</a></li>
                     </ul>
                 </label>
