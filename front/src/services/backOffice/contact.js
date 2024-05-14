@@ -14,10 +14,17 @@ export const getAllSocialNetworks = async () => {
     });
 }
 
-export const deleteSocialNetwork = async label => {
+export const setSocialNetwork = async body => {
     return await request({
         route: '/admin/contact/reseaux-sociaux',
+        method: 'post',
+        body,
+    });
+}
+
+export const deleteSocialNetwork = async id => {
+    return await request({
+        route: `/admin/contact/reseaux-sociaux/${id}`,
         method: 'delete',
-        body: { label }
     });
 }

@@ -12,5 +12,5 @@ export const setSocialNetwork = db
 
 export const deleteSocialNetwork = db
     .delete(socialNetwork)
-    .where(eq(socialNetwork.label, sql.placeholder('label')))
+    .where(eq(socialNetwork.id, sql.placeholder('id')))
     .prepare();
