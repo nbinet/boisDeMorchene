@@ -9,3 +9,11 @@
 .word-break-all {
     word-break: break-all;
 }
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+.clamp-50 {
+    -webkit-line-clamp: 50;
+}

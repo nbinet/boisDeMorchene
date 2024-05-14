@@ -4,7 +4,7 @@ import { Toast } from 'primereact/toast';
 import { InputText } from 'primereact/inputtext';
 import { InputMask } from 'primereact/inputmask';
 import { Button } from 'primereact/button';
-import useInfos from '../../../hooks/contact/UseInfos';
+import useInfos from '../../../hooks/contact/useInfos';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { classNames } from 'primereact/utils';
 import { setContactInfos } from '../../../services/backOffice/contact';

@@ -1,7 +1,7 @@
 import express from 'express';
 import { setConfigurationValue } from '../../services/configuration.js';
 import { socialNetworksAvailable } from '../../consts/socialNetworks.js';
-import { deleteSocialNetwork, findAllSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
+import { deleteSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
 
 const contactController = express();
 
@@ -11,9 +11,7 @@ contactController.post("/infos", async (req, res) => {
         await setConfigurationValue.execute({ key, value });
     }
 
-    res.send({
-        updated: true
-    });
+    res.send({ updated: true });
 });
 
 contactController.get("/reseaux-sociaux/tout", async (req, res) => {
@@ -22,18 +20,22 @@ contactController.get("/reseaux-sociaux/tout", async (req, res) => {
 
 contactController.post("/reseaux-sociaux", async (req, res) => {
     const { label, url } = req.body;
-    if (!label || !url)
-        return { error: true };
+    if (!label || !url) {
+        res.send({ error: true });
+        return;
+    }
 
     await setSocialNetwork.execute({ label, url });
-    
+
     res.send({ updated: true });
 });
 
 contactController.delete("/reseaux-sociaux", async (req, res) => {
     const { label } = req.body;
-    if (!label)
-        return { error: true };
+    if (!label) {
+        res.send({ error: true });
+        return;
+    }
 
     await deleteSocialNetwork.execute({ label });
 

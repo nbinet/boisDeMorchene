@@ -1,3 +1,7 @@
+.border-round-max {
+    border-radius: 100rem;
+}
+
 .border-secondary {
     border-color: var(--secondary-color);
 }

@@ -7,6 +7,7 @@ import ContactAdmin from './pages/BackOffice/Contact/Contact';
 import Layout from './pages/Public/Layout';
 import LayoutAdmin from './pages/BackOffice/Layout';
 import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
+import Races from './pages/BackOffice/Races/Races';
 
 const Router = () => {
     return (
@@ -19,6 +20,7 @@ const Router = () => {
                 </Route>
                 <Route path='/admin' element={<LayoutAdmin />}>
                     <Route index element={<HomeAdmin />} />
+                    <Route path='races' element={<Races />} />
                     <Route path='contact' element={<ContactAdmin />} />
                     <Route path='reseaux-sociaux' element={<SocialNetworks />} />
                     <Route path='*' element={<HomeAdmin />} />

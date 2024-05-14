@@ -4,6 +4,11 @@ import { Menubar } from 'primereact/menubar';
 const Header = () => {
     const menu = [
         {
+            label: 'Races',
+            icon: 'pi pi-list',
+            url: '/admin/races',
+        },
+        {
             label: 'Contact',
             icon: 'pi pi-envelope',
             url: '/admin/contact',
