@@ -28,7 +28,7 @@ dogsController.post("/", async (req, res) => {
         return;
     }
 
-    await setDog.execute({ name, age, raceId: existingRace.id });
+    await setDog.execute({ name, age, raceId: existingRace[0].id });
     res.send({ updated: true });
     
 });
