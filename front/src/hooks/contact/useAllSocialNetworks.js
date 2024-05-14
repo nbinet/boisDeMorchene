@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
-import { allSocialNetworksAtom } from '../../atoms/contactAtoms';
+import { allSocialNetworksAtom } from '../../atoms/tmp/contactAtoms';
 import { getAllSocialNetworks } from '../../services/backOffice/contact';
 
 const useAllSocialNetworks = () => {

@@ -4,7 +4,7 @@ import { Button } from 'primereact/button';
 import { capitalize } from '../../../utils/formatter';
 import { deleteSocialNetwork } from '../../../services/backOffice/contact';
 import { Toast } from 'primereact/toast';
-import { selectedSocialNetworkAtom } from '../../../atoms/contactAtoms';
+import { selectedSocialNetworkAtom } from '../../../atoms/tmp/contactAtoms';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import Form from './Form';
 import { useAtom } from 'jotai';
