@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
-import { allSocialNetworksAtom } from '../../../atoms/contactAtoms';
-import { getAllSocialNetworks } from '../../../services/backOffice/contact';
+import { allSocialNetworksAtom } from '../../atoms/contactAtoms';
+import { getAllSocialNetworks } from '../../services/backOffice/contact';
 
 const useAllSocialNetworks = () => {
     const [allSocialNetworks, setAllSocialNetworks] = useAtom(allSocialNetworksAtom);

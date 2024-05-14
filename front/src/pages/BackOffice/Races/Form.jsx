@@ -10,7 +10,7 @@ import { useAtom } from 'jotai';
 import { selectedRaceAtom } from '../../../atoms/racesAtoms';
 import { FileUpload } from 'primereact/fileupload';
 import { InputTextarea } from 'primereact/inputtextarea';
-import useRaces from '../../../hooks/tmp/races/useRaces';
+import useRaces from '../../../hooks/races/useRaces';
 import { API_URL } from '../../../consts/api';
 
 const Form = () => {

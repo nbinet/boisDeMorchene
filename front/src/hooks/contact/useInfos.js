@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getContactInfos } from '../../../services/front/contact';
+import { getContactInfos } from '../../services/front/contact';
 
 const useInfos = () => {
     const [infos, setInfos] = useState(undefined);

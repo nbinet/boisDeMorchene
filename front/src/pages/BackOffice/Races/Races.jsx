@@ -3,7 +3,7 @@ import { DataView } from 'primereact/dataview';
 import { useAtom } from 'jotai';
 import { racesAtom, selectedRaceAtom } from '../../../atoms/racesAtoms';
 import Loading from '../../../components/UI/Loading';
-import useRaces from '../../../hooks/tmp/races/useRaces';
+import useRaces from '../../../hooks/races/useRaces';
 import { Button } from 'primereact/button';
 import Form from './Form';
 import { API_URL } from '../../../consts/api';
