@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteRace, findAllRaces, findRaceById, findRaceByLabel, setRace } from '../../services/races.js';
+import { deleteRace, findAllRaces, findRaceById, findRaceBySlug, setRace } from '../../services/races.js';
 import { slugify } from '../../utils/text.js';
 import multer from 'multer';
 import path from 'path';
@@ -39,7 +39,6 @@ raceController.post("/", upload.single('image'), async (req, res) => {
         unlink(existing.image);
 
     const imagePath = req.file?.path ?? undefined;
-
 
     if (!label) {
         res.send({ error: true });

@@ -17,3 +17,7 @@ a, a:visited, a:hover, a:active {
 .clamp-50 {
     -webkit-line-clamp: 50;
 }
+
+ul li a:hover {
+    color: var(--secondary-color);
+}
