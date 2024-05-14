@@ -25,10 +25,10 @@ raceController.get("/", async (req, res) => {
 
 raceController.post("/", upload.single('image'), async (req, res) => {
     const { id = undefined, label, description, image } = req.body;
+    const slug = slugify(label);
+    const existing = await findRaceBySlug.execute({ slug });
 
-    const existing = await findRaceByLabel.execute({ label });
-
-    if (!id && existing) {
+    if (!id && existing?.length) {
         if (req.file?.path)
             unlink(req.file.path);
         res.send({ error: "Ce nom est déjà utilisé" });
@@ -40,7 +40,6 @@ raceController.post("/", upload.single('image'), async (req, res) => {
 
     const imagePath = req.file?.path ?? undefined;
 
-    const slug = slugify(label);
 
     if (!label) {
         res.send({ error: true });
