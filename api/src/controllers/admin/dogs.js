@@ -1,6 +1,7 @@
 import express from 'express';
 import { findAllDogs, setDog } from '../../services/dogs.js';
-import { findRaceByLabel } from '../../services/races.js';
+import { findRaceById, findRaceByLabel } from '../../services/races.js';
+import { race } from '../../db/schema.js';
 
 const dogsController = express();
 
@@ -15,20 +16,19 @@ dogsController.post("/", async (req, res) => {
         id = undefined, 
         name, 
         age, 
-        race
+        raceId
     } = req.body;
 
-    const existingRace = await findRaceByLabel.execute({ label:race });
+    const existingRace = await findRaceById.execute({ id: raceId });
 
     console.log(existingRace);
-    console.log(existingRace.id);
 
     if (existingRace.length === 0 || !existingRace[0].id) {
-        res.send({ error: "Aucune race avec ce nom"});
+        res.send({ error: "Aucune race trouvé avec cet id"});
         return;
     }
 
-    await setDog.execute({ name, age, raceId: existingRace[0].id });
+    await setDog.execute({ name, age, raceId });
     res.send({ updated: true });
     
 });
