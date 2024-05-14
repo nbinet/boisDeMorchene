@@ -6,13 +6,12 @@ const Header = () => {
     const checkboxMenu = useRef(null);
 
     const { socialNetworks } = useSocialNetworks();
-
     const { races } = useRaces();
 
     return (
-        <div className='w-full p-3 bg-white grid justify-content-between align-items-center gap-3 m-0'>
+        <div className='w-full z-5 p-3 bg-white grid justify-content-between align-items-center gap-3 m-0'>
             <div>
-            <a href="/"><img src="assets/logo.png" alt="logo" className='max-w-full max-h-7rem' /></a>
+            <a href="/"><img src="/assets/logo.png" alt="logo" className='max-w-full max-h-7rem' /></a>
             </div>
             <nav className='col flex justify-content-end mr-6'>
                 <label>
@@ -21,7 +20,7 @@ const Header = () => {
                         <span className="burger"></span>
                     </span>
                     <ul className='flex flex-column lg:flex-row gap-5'>
-                        { races?.map(r => <li key={r.id}><a href={`/race/${r.slug}`} className='text-2xl no-underline'>{r.label}</a></li>)}
+                        { races?.map(r => <li key={r.id}><a href={`/races/${r.slug}`} className='text-2xl no-underline'>{r.label}</a></li>) }
                         <li><a href="/contact" className='text-2xl no-underline'>Contact</a></li>
                     </ul>
                 </label>

@@ -2,7 +2,7 @@ import { eq, sql } from "drizzle-orm";
 import { socialNetwork } from "../db/schema.js";
 import { db } from "../db/setup.js";
 
-export const findAllSocialNetwork = db.select().from(socialNetwork).prepare();
+export const findAllSocialNetworks = db.select().from(socialNetwork).prepare();
 
 export const setSocialNetwork = db
     .insert(socialNetwork)

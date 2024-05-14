@@ -1,7 +1,7 @@
 import express from 'express';
 import { setConfigurationValue } from '../../services/configuration.js';
 import { socialNetworksAvailable } from '../../consts/socialNetworks.js';
-import { deleteSocialNetwork, setSocialNetwork } from '../../services/socialNetwork.js';
+import { deleteSocialNetwork, findAllSocialNetworks, setSocialNetwork } from '../../services/socialNetwork.js';
 
 const contactController = express();
 
@@ -19,7 +19,7 @@ contactController.get("/reseaux-sociaux/tout", async (req, res) => {
 });
 
 contactController.get("/reseaux-sociaux", async (req, res) => {
-    const socialNetworks = await findAllSocialNetwork.execute();
+    const socialNetworks = await findAllSocialNetworks.execute();
     res.send({ socialNetworks });
 });
 

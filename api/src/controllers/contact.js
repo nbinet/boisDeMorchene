@@ -1,6 +1,6 @@
 import express from 'express';
 import { getConfigurationValues } from '../services/configuration.js';
-import { findAllSocialNetwork } from '../services/socialNetwork.js';
+import { findAllSocialNetworks } from '../services/socialNetwork.js';
 
 const contactController = express();
 
@@ -12,7 +12,7 @@ contactController.get("/infos", async (req, res) => {
 });
 
 contactController.get("/reseaux-sociaux", async (req, res) => {
-    const socialNetworks = await findAllSocialNetwork.execute();
+    const socialNetworks = await findAllSocialNetworks.execute();
     res.send({
         socialNetworks
     });
