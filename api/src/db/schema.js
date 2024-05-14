@@ -19,6 +19,7 @@ export const race = mysqlTable('race', {
     slug: varchar('slug', { length: 255}).notNull().unique(),
     description: text('description'),
     order: int('order'),
+    image: varchar('image', { length: 255 })
     //todo chiens
 });
 

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { BreadCrumb } from 'primereact/breadcrumb';
-import useAllSocialNetworks from '../../../hooks/contact/UseAllSocialNetworks';
-import useSocialNetworks from '../../../hooks/contact/UseSocialNetworks';
+import useAllSocialNetworks from '../../../hooks/contact/useAllSocialNetworks';
+import useSocialNetworks from '../../../hooks/contact/useSocialNetworks';
 import { Button } from 'primereact/button';
 import { capitalize } from '../../../utils/formatter';
 import { deleteSocialNetwork } from '../../../services/backOffice/contact';

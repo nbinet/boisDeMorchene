@@ -6,10 +6,18 @@ export const getAllRaces = async () => {
     });
 }
 
+export const setRace = async body => {
+    return await request({
+        route: '/admin/races',
+        method: 'post',
+        body,
+        preventJson: true
+    })
+}
+
 export const deleteRace = async id => {
     return await request({
-        route: '/admin/race',
+        route: `/admin/races/${id}`,
         method: 'delete',
-        body: { id }
     });
 }
