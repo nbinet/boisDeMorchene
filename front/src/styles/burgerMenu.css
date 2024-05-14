@@ -3,12 +3,11 @@ nav {
         z-index: 1001;
 
         .menu {
-            position: absolute;
-            right: -100px;
-            top: -100px;
+            position: fixed;
+            right: -80px;
+            top: -80px;
             width: 200px;
             height: 200px;
-            background: var(--primary-color);
             border-radius: 50% 50% 50% 50%;
             -webkit-transition: .5s ease-in-out;
             transition: .5s ease-in-out;
@@ -26,7 +25,7 @@ nav {
             left: 50px;
             width: 30px;
             height: 2px;
-            background: var(--secondary-color);
+            background: var(--primary-color);
             display: block;
             -webkit-transform-origin: center;
             transform-origin: center;
@@ -41,7 +40,7 @@ nav {
                 display: block;
                 width: 100%;
                 height: 100%;
-                background: var(--secondary-color);
+                background: var(--primary-color);
             }
 
             &::before {
@@ -65,6 +64,7 @@ nav {
 
                 & + ul {
                     opacity: 1;
+                    color: #fff;
                 }
             }
 
