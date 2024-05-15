@@ -9,6 +9,11 @@ const Header = () => {
             url: '/admin/races',
         },
         {
+            label: 'Chiens',
+            icon: 'pi pi-list',
+            url: '/admin/dogs',
+        },
+        {
             label: 'Contact',
             icon: 'pi pi-envelope',
             url: '/admin/contact',
