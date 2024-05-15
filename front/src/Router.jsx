@@ -10,11 +10,17 @@ import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
 import Races from './pages/BackOffice/Races/Races';
 import Race from './pages/Public/Races/Race';
 import Error404 from './pages/Public/Errors/Error404';
+import Login from './pages/Public/Login/Login';
+import ForgotPassword from './pages/Public/Password/ForgotPassword';
+import ResetPassword from './pages/Public/Password/ResetPassword';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path='/connexion' element={<Login />} />
+                <Route path='mot-de-passe-oublie' element={<ForgotPassword />} />
+                <Route path='reinitialiser-mot-de-passe' element={<ResetPassword />} />
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />

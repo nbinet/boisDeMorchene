@@ -10,9 +10,7 @@ const Header = () => {
 
     return (
         <div className='w-full z-5 p-3 bg-white grid justify-content-between align-items-center gap-3 m-0'>
-            <div>
             <a href="/"><img src="/assets/logo.png" alt="logo" className='max-w-full max-h-7rem' /></a>
-            </div>
             <nav className='col flex justify-content-end mr-6'>
                 <label>
                     <input type="checkbox" ref={checkboxMenu} />
