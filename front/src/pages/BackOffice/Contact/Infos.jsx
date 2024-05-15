@@ -8,13 +8,17 @@ import useInfos from '../../../hooks/contact/useInfos';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { classNames } from 'primereact/utils';
 import { setContactInfos } from '../../../services/backOffice/contact';
+import { useAtomValue } from 'jotai';
+import { tokenAtom } from '../../../atoms/authAtom';
 
 const Infos = () => {
     const toast = useRef();
 
     const { infos = {} } = useInfos();
 
-    const initialValues = { ...infos }
+    const token = useAtomValue(tokenAtom);
+
+    const initialValues = { ...infos };
 
     const validate = values => {
         const errors = {};
@@ -35,7 +39,7 @@ const Infos = () => {
     }
 
     const onSubmit = async (values, { setSubmitting }) => {
-        const { updated, error } = await setContactInfos(values);
+        const { updated, error } = await setContactInfos(values, token);
         setSubmitting(false);
         if (error) {
             toast.current.show({ severity: 'error', summary: 'Erreur', detail: error, life: 6000 });

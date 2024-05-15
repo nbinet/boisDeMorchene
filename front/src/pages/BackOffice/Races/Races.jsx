@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { DataView } from 'primereact/dataview';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { racesAtom, selectedRaceAtom } from '../../../atoms/racesAtoms';
 import Loading from '../../../components/UI/Loading';
 import useRaces from '../../../hooks/races/useRaces';
@@ -11,6 +11,7 @@ import { truncate } from '../../../utils/formatter';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { deleteRace } from '../../../services/backOffice/races';
 import { Toast } from 'primereact/toast';
+import { tokenAtom } from '../../../atoms/authAtom';
 
 const Races = () => {
     const toast = useRef(null);
@@ -19,6 +20,7 @@ const Races = () => {
 
     const setRaces = useAtom(racesAtom)[1];
     const setSelectedRace = useAtom(selectedRaceAtom)[1];
+    const token = useAtomValue(tokenAtom);
 
     const openForm = race => {
         setSelectedRace({
@@ -42,7 +44,7 @@ const Races = () => {
     }
 
     const acceptDelete = async id => {
-        const { deleted, error } = await deleteRace(id);
+        const { deleted, error } = await deleteRace(id, token);
 
         if (error) {
             toast.current.show({ severity: 'error', summary: 'Erreur', detail: error, life: 6000 });
