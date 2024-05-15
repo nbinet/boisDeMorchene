@@ -7,7 +7,8 @@ import { Toast } from 'primereact/toast';
 import { selectedSocialNetworkAtom } from '../../../atoms/contactAtoms';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import Form from './Form';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
+import { tokenAtom } from '../../../atoms/authAtom';
 
 const SocialNetworks = () => {
     const toast = useRef();
@@ -15,6 +16,7 @@ const SocialNetworks = () => {
     const { socialNetworks, setSocialNetworks, loading } = useSocialNetworks();
 
     const setSelectedSocialNetwork = useAtom(selectedSocialNetworkAtom)[1];
+    const token = useAtomValue(tokenAtom);
 
     const openForm = socialNetwork => {
         setSelectedSocialNetwork({
@@ -37,7 +39,7 @@ const SocialNetworks = () => {
     }
 
     const acceptDelete = async id => {
-        const { deleted, error } = await deleteSocialNetwork(id);
+        const { deleted, error } = await deleteSocialNetwork(id, token);
         if (error) {
             toast.current.show({ severity: 'error', summary: 'Erreur', detail: error, life: 6000 });
             return;
