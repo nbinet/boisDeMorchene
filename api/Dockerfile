@@ -1,7 +1,8 @@
-FROM node:14
+FROM node:16
 
-WORKDIR /bezkoder-api
-COPY package.json .
+WORKDIR /app
+COPY package*.json ./ 
 RUN npm install
 COPY . .
-CMD npm start
+EXPOSE 5000
+CMD npm run db:push & npm run dev
