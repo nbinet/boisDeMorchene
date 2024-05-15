@@ -13,6 +13,7 @@ import Error404 from './pages/Public/Errors/Error404';
 import Login from './pages/Public/Login/Login';
 import ForgotPassword from './pages/Public/Password/ForgotPassword';
 import ResetPassword from './pages/Public/Password/ResetPassword';
+import MentionsLegales from './pages/Public/MentionsLegales/MentionsLegales';
 
 const Router = () => {
     return (
@@ -25,6 +26,7 @@ const Router = () => {
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />
                     <Route path='races/:slug' element={<Race />} />
+                    <Route path='mentions-legales' element={<MentionsLegales />} />
                     <Route path='*' element={<Error404 />} />
                 </Route>
                 <Route path='/admin' element={<LayoutAdmin />}>
@@ -36,7 +38,7 @@ const Router = () => {
                 </Route>
             </Routes>
         </BrowserRouter>
-    )
+    );
 }
 
 export default Router;

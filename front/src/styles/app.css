@@ -116,7 +116,12 @@ a {
 }
 
 .overlay .contact-link:hover {
-    background: #443934;
+    background: var(--secondary-color);
+}
+
+.style_h1 {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
 }
 
 .p-icon-field {
