@@ -4,9 +4,9 @@ export const request = async ({ route, method, body, headers, token, preventJson
     const options = {
         method,
         headers: {
-            'Content-Type': 'application/json',
+            ...!preventJson && { 'Content-Type': 'application/json' },
             ...headers,
-            ...token && {'Authorization': `Bearer ${token}`}
+            ...token && { 'Authorization': `Bearer ${token}` }
         },
         ...body && { body: preventJson || (headers && headers['Content-Type']?.includes('multipart/form-data')) ? body : JSON.stringify(body) }
     };
