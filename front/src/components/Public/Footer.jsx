@@ -1,8 +1,11 @@
 import React from 'react';
 import useSocialNetworks from '../../hooks/contact/useSocialNetworks';
+import useRaces from '../../hooks/races/useRaces';
 
 const Footer = () => {
     const { socialNetworks } = useSocialNetworks();
+
+    const { races } = useRaces();
 
     return (
         <div className='w-full'>
@@ -18,10 +21,7 @@ const Footer = () => {
                 </div>
                 <div className='flex flex-wrap flex-row justify-content-center gap-3 mt-2'>
                     <a href="/" className='text-lg'>Accueil</a>
-                    <a href="/" className='text-lg'>chien1</a>
-                    <a href="/" className='text-lg'>chien2</a>
-                    <a href="/" className='text-lg'>chien3</a>
-                    <a href="/" className='text-lg'>chien4</a>
+                    { races?.map(r => <a href={`/race/${r.slug}`} className='text-2xl no-underline'>{r.label}</a>)}
                     <a href="/contact" className='text-lg'>Contact</a>
                 </div>
                 <div className='flex flex-row justify-content-center gap-3 mt-4'>

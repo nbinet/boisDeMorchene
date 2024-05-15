@@ -8,6 +8,7 @@ import Layout from './pages/Public/Layout';
 import LayoutAdmin from './pages/BackOffice/Layout';
 import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
 import Races from './pages/BackOffice/Races/Races';
+import MentionsLegales from './pages/Public/MentionsLegales/MentionsLegales';
 
 const Router = () => {
     return (
@@ -16,6 +17,7 @@ const Router = () => {
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />
+                    <Route path='mentions-legales' element={<MentionsLegales />} />
                     <Route path='*' element={<Home />} />
                 </Route>
                 <Route path='/admin' element={<LayoutAdmin />}>
