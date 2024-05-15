@@ -19,6 +19,7 @@ const Footer = () => {
                     ))}
                 </div>
                 <div className='flex flex-wrap flex-row justify-content-center gap-3 mt-2'>
+                <a href="/" className='text-lg'>Accueil</a>
                     { races?.map(r => <a key={r.id} href={`/races/${r.slug}`} className='text-lg'>{r.label}</a>) }
                     <a href="/contact" className='text-lg'>Contact</a>
                 </div>
