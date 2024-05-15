@@ -10,17 +10,6 @@ dotenv.config();
 
 const authController = express();
 
-authController.get("/create-admin", async (req, res) => {
-    const password = await bcrypt.hash("admin", 10);
-
-    await setUser.execute({
-        email: "admin@admin.fr",
-        password: password
-    });
-
-    res.send({ created: true });
-})
-
 authController.post("/login", async (req, res) => {
     const { email, password } = req.body;
 

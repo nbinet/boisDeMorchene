@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport({
 
 export const sendMail = async (to, subject, html) => {
     const data = {
-        from: 'contact@boisdemorchene.com',
+        from: 'contact@elevageduboisdemorchene.com',
         to,
         subject,
         html
