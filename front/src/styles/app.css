@@ -118,3 +118,7 @@ a {
 .overlay .contact-link:hover {
     background: #443934;
 }
+
+.p-icon-field {
+    width: 100%;
+}
