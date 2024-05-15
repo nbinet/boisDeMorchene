@@ -29,3 +29,9 @@ export const dog = mysqlTable('dog', {
     age: int('age').notNull(),
     raceId: int("race_id").references(() => race.id)
 });
+
+export const user = mysqlTable('user', {
+    id: int('id').primaryKey().autoincrement(),
+    email: varchar('email', { length: 255 }).notNull().unique(),
+    password: varchar('pasword', { length: 255 }).notNull()
+})
