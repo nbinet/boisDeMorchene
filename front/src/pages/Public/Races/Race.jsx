@@ -20,18 +20,20 @@ const Race = () => {
             { loading ? <Loading /> : <>
                 { error ? <NotFound /> :
                     <>
-                        <div className='flex flex-row'>
+                        <div className='flex-row bg-white pt-5 bloc_race'>
+                            
                             { race.image ?
-                                <div className='col-12 lg:col-5 aspect-1 bg-secondary p-0'>
+                                <div className='col-12 lg:col-5 p-0'>
                                     <img src={`${API_URL}/${race.image}`} alt={race.label} className='w-full h-full fit-cover' />
                                 </div>
                             : null }
-                            <div className='col p-2 lg:p-5 text-white'>
-                                <h2 className='tetx-xl lg:text-5xl'>{race.label}</h2>
+                            
+                            <div className='col p-2 lg:p-5'>
+                                <h1 className='text-xl lg:text-5xl font-light style_h1'>{race.label}</h1>
                                 { race.description ? <p className='white-space-prewrap'>{race.description}</p> : null }
                             </div>
                         </div>
-                        <Litter />
+                        <Litter raceId={race.id} />
                     </>
                 }
             </> }

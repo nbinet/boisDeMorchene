@@ -5,6 +5,8 @@ import raceController from './controllers/races.js';
 import raceControllerAdmin from './controllers/admin/races.js';
 import dogsController from './controllers/admin/dogs.js';
 import authController from './controllers/auth.js';
+import dogsFrontController from './controllers/dogs.js';
+import path from 'path';
 import cors from 'cors';
 
 const app = express();
@@ -17,6 +19,7 @@ app.use('/public', express.static('public'));
 app.use('/', authController);
 app.use('/contact', contactController);
 app.use('/races', raceController);
+app.use('/dogs', dogsFrontController);
 app.use('/admin/contact', contactControllerAdmin);
 app.use('/admin/races', raceControllerAdmin);
 app.use('/admin/dogs', dogsController);

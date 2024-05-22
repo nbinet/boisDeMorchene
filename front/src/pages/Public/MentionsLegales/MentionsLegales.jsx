@@ -2,8 +2,8 @@ import React from 'react';
 
 const MentionsLegales = () => {
     return (
-        <div className='bg-white'>
-            <h1 className='text-center font-light style_h1'>Mentions légales</h1>
+        <div className='bg-white py-5'>
+            <h1 className='text-center text-xl lg:text-5xl font-light style_h1'>Mentions légales</h1>
 
             <section className='mx-auto w-full md:w-5 my-8'>
 
