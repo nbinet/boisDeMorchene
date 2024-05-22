@@ -9,6 +9,7 @@ import LayoutAdmin from './pages/BackOffice/Layout';
 import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
 import Races from './pages/BackOffice/Races/Races';
 import Race from './pages/Public/Races/Race';
+import Dog from './pages/Public/Dogs/Dog';
 import Error404 from './pages/Public/Errors/Error404';
 import MentionsLegales from './pages/Public/MentionsLegales/MentionsLegales';
 
@@ -20,6 +21,7 @@ const Router = () => {
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />
                     <Route path='races/:slug' element={<Race />} />
+                    <Route path='chiens/:id' element={<Dog />} />
                     <Route path='mentions-legales' element={<MentionsLegales />} />
                     <Route path='*' element={<Error404 />} />
                 </Route>
