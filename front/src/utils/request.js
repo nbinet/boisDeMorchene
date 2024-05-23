@@ -1,6 +1,7 @@
 import { API_URL } from "../consts/api";
 
 export const request = async ({ route, method, body, headers, token, preventJson }) => {
+    console.log(API_URL);
     const options = {
         method,
         headers: {
