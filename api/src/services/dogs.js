@@ -11,6 +11,18 @@ export const findDogById = db
     .limit(1)
     .prepare();
 
+    export const findDogsByRaceId = db
+    .select()
+    .from(dog)
+    .where(eq(dog.raceId, sql.placeholder('raceId')))
+    .prepare();
+
+export const findDetailsById = db
+    .query.dog.findFirst({
+        where: (dog, { eq }) => eq(dog.id, sql.placeholder('id'))
+    })
+    .prepare();
+
 export const setDog = db
     .insert(dog)
     .values({
