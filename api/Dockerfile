@@ -10,6 +10,7 @@ RUN npm i --production
 COPY . .
 
 ENV NODE_ENV production
+
 CMD ["node", "src/app.js"]
 
 EXPOSE 3001

@@ -5,3 +5,20 @@ services:
     build: .
     ports:
       - 3001:3001
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
+      - MYSQL_DATABASE=$DB_DATABASE
+    ports:
+      - 3307:3306
+    volumes:
+      - db:/var/lib/mysql
+
+volumes: 
+  db:

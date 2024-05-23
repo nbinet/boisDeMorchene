@@ -6,7 +6,6 @@ import raceControllerAdmin from './controllers/admin/races.js';
 import dogsController from './controllers/admin/dogs.js';
 import authController from './controllers/auth.js';
 import dogsFrontController from './controllers/dogs.js';
-import path from 'path';
 import cors from 'cors';
 
 const app = express();
@@ -24,4 +23,4 @@ app.use('/admin/contact', contactControllerAdmin);
 app.use('/admin/races', raceControllerAdmin);
 app.use('/admin/dogs', dogsController);
 
-app.listen(8000);
+app.listen(process.env.NODE_PORT);
