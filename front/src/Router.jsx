@@ -17,8 +17,10 @@ import ResetPassword from './pages/Public/Password/ResetPassword';
 import MentionsLegales from './pages/Public/MentionsLegales/MentionsLegales';
 
 const Router = () => {
+    const basename = document.querySelector('base')?.getAttribute('href') ?? '/'    
+    
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
             <Routes>
                 <Route path='/connexion' element={<Login />} />
                 <Route path='mot-de-passe-oublie' element={<ForgotPassword />} />
