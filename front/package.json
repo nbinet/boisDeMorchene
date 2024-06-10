@@ -1,6 +1,8 @@
 {
   "name": "front",
   "version": "0.1.0",
+  "homepage": ".",
+  "proxy": "http://ludovic.lahougue.caen.mds-project.fr/elevageduboisdemorchene-api",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,7 +13,7 @@
     "leaflet": "^1.9.4",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
-    "primereact": "^10.5.1",
+    "primereact": "^10.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
@@ -21,7 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PUBLIC_URL=/ react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,5 +48,8 @@
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.8"
+  },
+  "browser": {
+    "crypto": false
   }
 }

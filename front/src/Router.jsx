@@ -10,17 +10,27 @@ import SocialNetworks from './pages/BackOffice/SocialNetworks/SocialNetworks';
 import Races from './pages/BackOffice/Races/Races';
 import Dogs from './pages/BackOffice/Dogs/Dogs';
 import Race from './pages/Public/Races/Race';
+import Dog from './pages/Public/Dogs/Dog';
 import Error404 from './pages/Public/Errors/Error404';
+import Login from './pages/Public/Login/Login';
+import ForgotPassword from './pages/Public/Password/ForgotPassword';
+import ResetPassword from './pages/Public/Password/ResetPassword';
 import MentionsLegales from './pages/Public/MentionsLegales/MentionsLegales';
 
 const Router = () => {
+    const basename = document.querySelector('base')?.getAttribute('href') ?? '/'    
+    
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
             <Routes>
+                <Route path='/connexion' element={<Login />} />
+                <Route path='mot-de-passe-oublie' element={<ForgotPassword />} />
+                <Route path='reinitialiser-mot-de-passe' element={<ResetPassword />} />
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />
                     <Route path='races/:slug' element={<Race />} />
+                    <Route path='chiens/:id' element={<Dog />} />
                     <Route path='mentions-legales' element={<MentionsLegales />} />
                     <Route path='*' element={<Error404 />} />
                 </Route>

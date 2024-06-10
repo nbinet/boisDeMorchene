@@ -6,12 +6,13 @@ import { InputText } from 'primereact/inputtext';
 import { classNames } from 'primereact/utils';
 import { Button } from 'primereact/button';
 import { setRace } from '../../../services/backOffice/races';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { selectedRaceAtom } from '../../../atoms/racesAtoms';
 import { FileUpload } from 'primereact/fileupload';
 import { InputTextarea } from 'primereact/inputtextarea';
 import useRaces from '../../../hooks/races/useRaces';
 import { API_URL } from '../../../consts/api';
+import { tokenAtom } from '../../../atoms/authAtom';
 
 const Form = () => {
     const [image, setImage] = useState(undefined);
@@ -22,6 +23,7 @@ const Form = () => {
     const { fetchRaces } = useRaces();
 
     const [selectedRace, setSelectedRace] = useAtom(selectedRaceAtom);
+    const token = useAtomValue(tokenAtom);
 
     const initialValues = { ...selectedRace };
 
@@ -53,7 +55,7 @@ const Form = () => {
         if (selectedRace.id)
             formData.append('id', selectedRace.id)
 
-        const { updated, error } = await setRace(formData);
+        const { updated, error } = await setRace(formData, token);
         setSubmitting(false);
 
         if (error) {

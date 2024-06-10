@@ -9,3 +9,7 @@
 .fit-cover {
     object-fit: cover;
 }
+
+.brightness-80 {
+    filter: brightness(80%);
+}

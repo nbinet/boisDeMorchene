@@ -2,15 +2,16 @@ import express from 'express';
 import { findAllDogs, setDog, findDogById, deleteDog, updateDog } from '../../services/dogs.js';
 import { findRaceById, findRaceBySlug } from '../../services/races.js';
 import { race } from '../../db/schema.js';
+import { verifyJwt } from '../../utils/jwt.js';
 
 const dogsController = express();
 
-dogsController.get("/", async (req, res) => {
+dogsController.get("/", verifyJwt(), async (req, res) => {
     const dogs = await findAllDogs.execute();
     res.send({ dogs });
 });
 
-dogsController.post("/", async (req, res) => {
+dogsController.post("/", verifyJwt(), async (req, res) => {
 
     const { 
         id = undefined, 
@@ -33,7 +34,7 @@ dogsController.post("/", async (req, res) => {
     
 });
 
-dogsController.patch("/:id", async (req, res) => {
+dogsController.patch("/:id", verifyJwt(), async (req, res) => {
     const { id } = req.params;
     const { name, age, raceId } = req.body;
 
@@ -56,7 +57,7 @@ dogsController.patch("/:id", async (req, res) => {
     res.send({ updated: true });
 });
 
-dogsController.delete("/:id", async (req, res) => {
+dogsController.delete("/:id", verifyJwt(), async (req, res) => {
     const { id } = req.params;
     const dog = await findDogById.execute({ id }) ?? null;
     

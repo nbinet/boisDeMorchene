@@ -2,10 +2,11 @@ import express from 'express';
 import { setConfigurationValue } from '../../services/configuration.js';
 import { socialNetworksAvailable } from '../../consts/socialNetworks.js';
 import { deleteSocialNetwork, findAllSocialNetworks, setSocialNetwork } from '../../services/socialNetwork.js';
+import { verifyJwt } from '../../utils/jwt.js';
 
 const contactController = express();
 
-contactController.post("/infos", async (req, res) => {
+contactController.post("/infos", verifyJwt(), async (req, res) => {
     for (const [k, value] of Object.entries(req.body)) {
         const key = `CONTACT_${k.toUpperCase()}`;
         await setConfigurationValue.execute({ key, value });
@@ -14,16 +15,16 @@ contactController.post("/infos", async (req, res) => {
     res.send({ updated: true });
 });
 
-contactController.get("/reseaux-sociaux/tout", async (req, res) => {
+contactController.get("/reseaux-sociaux/tout", verifyJwt(), async (req, res) => {
     res.send({ socialNetworks: socialNetworksAvailable });
 });
 
-contactController.get("/reseaux-sociaux", async (req, res) => {
+contactController.get("/reseaux-sociaux", verifyJwt(), async (req, res) => {
     const socialNetworks = await findAllSocialNetworks.execute();
     res.send({ socialNetworks });
 });
 
-contactController.post("/reseaux-sociaux", async (req, res) => {
+contactController.post("/reseaux-sociaux", verifyJwt(), async (req, res) => {
     const { label, url } = req.body;
     if (!label || !url) {
         res.send({ error: "Le réseau social et son URL sont requis" });
@@ -35,7 +36,7 @@ contactController.post("/reseaux-sociaux", async (req, res) => {
     res.send({ updated: true });
 });
 
-contactController.delete("/reseaux-sociaux/:id", async (req, res) => {
+contactController.delete("/reseaux-sociaux/:id", verifyJwt(), async (req, res) => {
     const { id } = req.params;
     if (!id) {
         res.send({ error: "Ce réseau social est introuvable" });

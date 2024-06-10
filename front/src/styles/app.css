@@ -35,7 +35,7 @@ a {
 }
 
 .container {
-    padding: 1rem 10%;
+    padding: 3rem 10%;
 }
 
 .bg-secondary {
@@ -122,4 +122,24 @@ a {
 .style_h1 {
     text-decoration: underline;
     text-decoration-color: var(--secondary-color);
+}
+
+.p-icon-field {
+    width: 100%;
+}
+
+.bloc_race {
+    display: flex;
+    
+    @media screen and (max-width: 767px) {
+        display: block;
+    }
+}
+
+.w-300 {
+    width: 300px !important;
+}
+
+.h-200 {
+    height: 200px;
 }

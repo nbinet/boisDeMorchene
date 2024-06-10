@@ -26,6 +26,7 @@ const Footer = () => {
                 <div className='flex flex-row justify-content-center gap-3 mt-4'>
                     <span className='text-sm'>Copyright © 2024 - Tout droit réservé</span>
                     <a href="/mentions-legales" className='text-sm'>Mentions Légales</a>
+                    <a href="/admin" className='text-sm'>Administration</a>
                 </div>
             </div>
         </div>

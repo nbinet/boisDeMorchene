@@ -1,4 +1,4 @@
-import { int, mysqlTable, text, varchar } from "drizzle-orm/mysql-core";
+import { datetime, int, mysqlTable, text, varchar } from "drizzle-orm/mysql-core";
 import { socialNetworksAvailable } from "../consts/socialNetworks.js";
 
 export const configuration = mysqlTable('configuration', {
@@ -20,7 +20,6 @@ export const race = mysqlTable('race', {
     description: text('description'),
     order: int('order'),
     image: varchar('image', { length: 255 })
-    //todo chiens
 });
 
 export const dog = mysqlTable('dog', {
@@ -28,4 +27,16 @@ export const dog = mysqlTable('dog', {
     name: varchar('name', { length: 255 }).notNull(),
     age: int('age').notNull(),
     raceId: int("race_id").references(() => race.id)
+});
+
+export const user = mysqlTable('user', {
+    id: int('id').primaryKey().autoincrement(),
+    email: varchar('email', { length: 255 }).notNull().unique(),
+    password: varchar('pasword', { length: 255 }).notNull(),
+});
+
+export const passwordResetRequest = mysqlTable('password_change_request', {
+    token: varchar('token', { length: 255 }).primaryKey(),
+    time: datetime('time').notNull(),
+    user: int('user_id').references(() => user.id)
 });

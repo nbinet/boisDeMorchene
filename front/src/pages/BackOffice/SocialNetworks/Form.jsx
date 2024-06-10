@@ -5,12 +5,13 @@ import { ErrorMessage, Field, Formik, Form as FormikForm } from 'formik';
 import { InputText } from 'primereact/inputtext';
 import { classNames } from 'primereact/utils';
 import { Button } from 'primereact/button';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import useSocialNetworks from '../../../hooks/contact/useSocialNetworks';
 import useAllSocialNetworks from '../../../hooks/contact/useAllSocialNetworks';
 import { selectedSocialNetworkAtom } from '../../../atoms/contactAtoms';
 import { Dropdown } from 'primereact/dropdown';
 import { setSocialNetwork } from '../../../services/backOffice/contact';
+import { tokenAtom } from '../../../atoms/authAtom';
 
 const Form = () => {
     const toast = useRef(null);
@@ -19,6 +20,7 @@ const Form = () => {
     const { fetchSocialNetworks } = useSocialNetworks();
 
     const [selectedSocialNetwork, setSelectedSocialNetwork] = useAtom(selectedSocialNetworkAtom);
+    const token = useAtomValue(tokenAtom);
 
     const initialValues = { ...selectedSocialNetwork };
 
@@ -41,7 +43,7 @@ const Form = () => {
     }
 
     const onSubmit = async (values, { setSubmitting }) => {
-        const { updated, error } = await setSocialNetwork(values);
+        const { updated, error } = await setSocialNetwork(values, token);
         setSubmitting(false);
 
         if (error) {

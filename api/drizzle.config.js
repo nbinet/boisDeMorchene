@@ -10,5 +10,5 @@ export default {
         database: process.env.DB_DATABASE,
         password: process.env.DB_PASSWORD,
     },
-    driver: "mysql2",
+    dialect: "mysql",
 }
