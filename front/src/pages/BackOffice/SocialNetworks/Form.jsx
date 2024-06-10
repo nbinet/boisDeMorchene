@@ -30,7 +30,7 @@ const Form = () => {
         if (!values.label)
             errors.label = "Le nom est requis";
         
-        if (!allSocialNetworks.includes(values.label))
+        if (!allSocialNetworks.map(r => r.label).includes(values.label))
             errors.label = "Ce réseau social n'est pas pris en charge";
         
         if (!values.url)
@@ -77,6 +77,8 @@ const Form = () => {
                                                 value={field.value ?? ''}
                                                 options={allSocialNetworks}
                                                 onChange={e => field.onChange(e)}
+                                                optionLabel='label'
+                                                optionValue='label'
                                                 placeholder='Réseau social'
                                                 pt={{ root: { className: 'w-full' } }}
                                                 className={classNames({ 'p-invalid': form.errors.label })}

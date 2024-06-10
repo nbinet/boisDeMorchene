@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../components/BackOffice/Header';
 import { Navigate, Outlet } from "react-router-dom";
-import Footer from '../../components/BackOffice/Footer';
 import { useAtomValue } from 'jotai';
 import { tokenAtom } from '../../atoms/authAtom';
 
@@ -16,7 +15,6 @@ const Layout = () => {
         <>
             <Header />
             <Outlet />
-            <Footer />
         </>
     )
 }

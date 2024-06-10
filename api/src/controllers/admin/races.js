@@ -19,7 +19,7 @@ const upload = multer({ storage: storage });
 
 const raceController = express();
 
-raceController.get("/", verifyJwt(), async (req, res) => {
+raceController.get("/", async (req, res) => {
     const races = await findAllRaces.execute();
     res.send({ races });
 });

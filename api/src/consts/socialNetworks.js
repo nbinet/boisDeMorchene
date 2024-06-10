@@ -1,1 +1,8 @@
-export const socialNetworksAvailable = ['facebook', 'instagram', 'linkedin', 'youtube', 'vimeo', 'twitter'];
+export const socialNetworksAvailable = [
+    { label: 'facebook' },
+    { label: 'instagram' },
+    { label: 'linkedin' },
+    { label: 'youtube' },
+    { label: 'vimeo' },
+    { label: 'twitter' },
+]
