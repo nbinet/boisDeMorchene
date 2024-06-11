@@ -19,5 +19,13 @@ a, a:visited, a:hover, a:active {
 }
 
 ul li a:hover {
+    color: var(--primary-color);
+}
+
+.text-primary-2, .text-primary-2:visited {
     color: var(--secondary-color);
+
+    @media screen and (min-width: 992px) {
+        color: var(--text-secondary);
+    }
 }

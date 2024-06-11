@@ -8,7 +8,7 @@ const Footer = () => {
 
     return (
         <div className='w-full'>
-            <div className='bg-footer container flex flex-column justify-content-center gap-2'>
+            <div className='bg-secondary container flex flex-column justify-content-center gap-2'>
                 <h2 className='text-center p-0 m-0 font-light'>Élevage du Bois de Morchene</h2>
                 <span className='separator text-2xl'>Rejoignez-nous</span>
                 <div className='flex flex-row justify-content-center gap-3'>
