@@ -20,7 +20,7 @@ const Race = () => {
             { loading ? <Loading /> : <>
                 { error ? <NotFound /> :
                     <>
-                        <div className='flex-row bg-white pt-5 bloc_race'>
+                        <div className='flex-row bloc_race'>
                             
                             { race.image ?
                                 <div className='col-12 lg:col-5 p-0'>

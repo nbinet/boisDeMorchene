@@ -30,7 +30,7 @@ const Litter = ({ raceId }) => {
     }, [raceId]);
 
     return (
-        <div className='bg-secondary pt-4 pb-6'>
+        <div className='litter pt-4 pb-6'>
             <h2 className='text-center text-white text-xl lg:text-5xl font-light mt-0'>Nos portées</h2>
             { loading ? <div>Loading...</div> :
                 error ? <div>Error loading litter: {error.message}</div> :

@@ -14,7 +14,7 @@ const Contact = () => {
                     <div className='w-full lg:w-7 h-15rem sm:h-20rem lg:h-auto'>
                         { infos?.latitude && infos?.longitude ? <Map latitude={infos.latitude} longitude={infos.longitude}/> : null }
                     </div>
-                    <div className='w-full lg:w-5 bg-secondary p-3 md:p-5 lg:pr-2 flex flex-row justify-content-between'>
+                    <div className='w-full lg:w-5 bg-contact p-3 md:p-5 lg:pr-2 flex flex-row justify-content-between'>
                         <div className='flex flex-column justify-content-around gap-3 w-full'>
                             <h2 className='m-0 uppercase text-4xl text-center lg:text-left'>Nous contacter</h2>
                             <div className='flex flex-column gap-3 lg:gap-5'>

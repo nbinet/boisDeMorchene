@@ -22,7 +22,7 @@ const Dog = () => {
     return (
         <div className='h-full bg-white'>
             {dog ? (
-                <div className='flex-row bg-white pt-5 bloc_race'>
+                <div className='flex-row bg-white bloc_race'>
                                     
                     { dog.image ?
                         <div className='col-12 lg:col-5 p-0'>
